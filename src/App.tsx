@@ -26,18 +26,44 @@ import { motion, AnimatePresence } from 'motion/react';
 // --- Data ---
 
 const menuItems = [
-  { id: 1, name: "Signature Latte", description: "Double shot espresso with steamed milk and our house vanilla bean syrup.", price: "$5.50", category: "Coffee" },
-  { id: 2, name: "Cold Brew", description: "Steeped for 18 hours for a smooth, low-acid, and naturally sweet finish.", price: "$4.75", category: "Coffee" },
-  { id: 3, name: "Flat White", description: "Micro-foam milk poured over a double ristretto for a rich, velvety texture.", price: "$4.50", category: "Coffee" },
-  { id: 4, name: "Matcha Latte", description: "Ceremonial grade matcha whisked with your choice of milk.", price: "$5.25", category: "Tea" },
-  { id: 5, name: "Espresso Tonic", description: "Double espresso poured over premium tonic water with a twist of orange.", price: "$6.00", category: "Specials" },
-  { id: 6, name: "Seasonal Special", description: "Ask about our current farm-to-cup rotation. Changing every 3 months.", price: "$6.50", category: "Specials" },
+  // Coffee Based (Hot)
+  { id: 1, name: "Brewed Coffee", description: "12oz - Pure ground beans brewed daily.", price: "₱65", category: "Coffee Based (Hot)" },
+  { id: 2, name: "Capuccino", description: "12oz - Espresso with equal parts steamed milk and foam.", price: "₱95", category: "Coffee Based (Hot)" },
+  { id: 3, name: "Spanish Latte", description: "12oz - Rich espresso with our special sweet cream blend.", price: "₱95", category: "Coffee Based (Hot)" },
+  { id: 4, name: "Caramel Macchiato", description: "12oz - Layered espresso with vanilla and caramel drizzle.", price: "₱95", category: "Coffee Based (Hot)" },
+  { id: 5, name: "Sea Salt Latte", description: "12oz - Creamy latte topped with savory sea salt foam.", price: "₱95", category: "Coffee Based (Hot)" },
+  { id: 6, name: "Hot Chocolate", description: "12oz - Decadent hot cocoa made with premium chocolate.", price: "₱95", category: "Coffee Based (Hot)" },
+
+  // Coffee Based (Iced)
+  { id: 7, name: "Iced Americano", description: "16oz/20oz - Refreshing smooth espresso over ice.", price: "₱85 / ₱95", category: "Coffee Based (Iced)" },
+  { id: 8, name: "Spanish Latte", description: "16oz/20oz - Our best-selling sweet and creamy iced latte.", price: "₱130 / ₱149", category: "Coffee Based (Iced)" },
+  { id: 9, name: "Caramel Macchiato", description: "16oz/20oz - Espresso with cold milk and rich caramel.", price: "₱140 / ₱149", category: "Coffee Based (Iced)" },
+  { id: 10, name: "Salted Caramel", description: "16oz/20oz - Sweet and salty harmony in an iced blend.", price: "₱140 / ₱149", category: "Coffee Based (Iced)" },
+  { id: 11, name: "Sea Salt Latte", description: "16oz/20oz - Iced coffee with a savory sea salt kick.", price: "₱130 / ₱149", category: "Coffee Based (Iced)" },
+  { id: 12, name: "Vanilla Latte", description: "16oz/20oz - Classic smooth vanilla meeting bold espresso.", price: "₱110 / ₱130", category: "Coffee Based (Iced)" },
+
+  // Matcha
+  { id: 13, name: "Pure Matcha", description: "16oz/20oz - Traditional Japanese green tea blend.", price: "₱110 / ₱120", category: "Matcha" },
+  { id: 14, name: "Dirty Matcha", description: "16oz/20oz - Matcha combined with a shot of espresso.", price: "₱120 / ₱130", category: "Matcha" },
+  { id: 15, name: "Strawberry Matcha", description: "16oz/20oz - Sweet strawberry meeting earthy matcha.", price: "₱120 / ₱130", category: "Matcha" },
+  { id: 16, name: "Sea Salt Matcha", description: "16oz/20oz - Matcha topped with signature sea salt foam.", price: "₱120 / ₱130", category: "Matcha" },
+
+  // Non Caffeine
+  { id: 17, name: "Chocolate Frappe", description: "16oz/20oz - Blended chocolate goodness.", price: "₱85 / ₱95", category: "Non Caffeine" },
+  { id: 18, name: "Taro Frappe", description: "16oz/20oz - Creamy blended purple taro.", price: "₱110 / ₱120", category: "Non Caffeine" },
+  { id: 19, name: "Oreo", description: "16oz/20oz - Blended cookies and cream delight.", price: "₱85 / ₱95", category: "Non Caffeine" },
+  { id: 20, name: "Strawberry Frappe", description: "16oz/20oz - Fruity and creamy blended strawberry.", price: "₱85 / ₱95", category: "Non Caffeine" },
+
+  // Refreshment
+  { id: 21, name: "Strawberry Soda", description: "16oz/20oz - Bubbly strawberry refreshment.", price: "₱55 / ₱65", category: "Refreshment" },
+  { id: 22, name: "Blueberry Soda", description: "16oz/20oz - Sparkling blueberry fizz.", price: "₱55 / ₱65", category: "Refreshment" },
+  { id: 23, name: "Alipio Drink", description: "16oz/20oz - Our unique signature fruit blend.", price: "₱90 / ₱100", category: "Refreshment" },
 ];
 
 const testimonials = [
-  { id: 1, name: "Sarah J.", rating: 5, text: "The best cold brew in the city. The atmosphere is perfect for getting work done or catching up with friends." },
-  { id: 2, name: "Mark R.", rating: 5, text: "Truly artisan. You can taste the quality of the beans in every cup. Their flat white is perfection." },
-  { id: 3, name: "Elena K.", rating: 5, text: "The staff is so welcoming. It's more than just coffee; it's a community hub." },
+  { id: 1, name: "Sarah J.", rating: 5, text: "The Spanish Latte is definitely the best in town! Love the vibe here." },
+  { id: 2, name: "Mark R.", rating: 5, text: "Truly artisan. You can taste the quality in every sip of their Brewed Coffee." },
+  { id: 3, name: "Elena K.", rating: 5, text: "Amazing community spot. The Strawberry Matcha is a must-try!" },
 ];
 
 // --- Components ---
@@ -67,9 +93,13 @@ const Navbar = () => {
       } border-b border-white/10`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 group">
-          <Coffee className="w-8 h-8 text-accent group-hover:rotate-12 transition-transform duration-300" />
-          <span className="text-2xl font-serif italic font-bold tracking-tight text-light">Brew & Co.</span>
+        <a href="#" className="flex items-center gap-3 group">
+          <img 
+            src="input_file_0.png" 
+            alt="E&L Coffeedent Logo" 
+            className="w-12 h-12 rounded-full border border-white/20 group-hover:scale-110 transition-transform duration-300" 
+          />
+          <span className="text-xl font-serif italic font-bold tracking-tight text-light">E&L Coffeedent</span>
         </a>
 
         {/* Desktop Nav */}
@@ -222,53 +252,63 @@ const TrustBar = () => {
 };
 
 const Menu = () => {
+  const categories = Array.from(new Set(menuItems.map(item => item.category)));
+
   return (
     <section id="menu" className="py-24 bg-white border-l border-black/5">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
-            <h2 className="text-4xl font-serif text-primary mb-2">Most-Loved Drinks</h2>
+            <h2 className="text-4xl font-serif text-primary mb-2 italic">Our Full Menu</h2>
             <div className="h-1 w-20 bg-accent"></div>
           </div>
           <span className="text-xs font-bold uppercase tracking-widest text-accent cursor-pointer hover:underline decoration-accent">
-            Today's Special &rarr;
+            Check Our Daily Specials &rarr;
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {menuItems.map((item, idx) => (
-            <motion.div 
-              key={item.id}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-              className={`bg-white p-6 rounded-lg border border-primary/10 transition-all hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(44,26,14,0.05)] cursor-default ${
-                item.name === "Seasonal Special" ? 'border-dashed border-accent bg-orange-50/30' : ''
-              }`}
-            >
-              <div className="flex justify-between items-start mb-4">
-                <h3 className={`font-bold text-sm uppercase tracking-tight ${item.name === "Seasonal Special" ? 'text-accent' : 'text-primary'}`}>{item.name}</h3>
-                <span className="text-xs font-bold text-primary opacity-60 uppercase tracking-widest bg-light px-2 py-0.5 rounded">
-                  {item.category}
-                </span>
+        <div className="space-y-20">
+          {categories.map((category) => (
+            <div key={category} className="space-y-8">
+              <div className="flex items-center gap-4">
+                <h3 className="text-2xl font-serif text-primary italic whitespace-nowrap">{category}</h3>
+                <div className="h-px w-full bg-primary/10"></div>
               </div>
-              <p className="text-text-muted text-[11px] leading-relaxed mb-6 font-sans">
-                {item.description}
-              </p>
-              <div className="flex justify-between items-center mt-auto">
-                 <span className="font-bold text-primary">{item.price}</span>
-                 <div className={`${item.name === "Seasonal Special" ? 'bg-accent text-white' : 'bg-light text-primary hover:bg-primary/5'} p-1.5 px-4 text-[10px] rounded-[4px] font-bold uppercase tracking-widest cursor-pointer transition-colors`}>
-                    + Add
-                 </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {menuItems.filter(item => item.category === category).map((item, idx) => (
+                  <motion.div 
+                    key={item.id}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.05 }}
+                    className={`bg-white p-6 rounded-lg border border-primary/10 transition-all hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(44,26,14,0.05)] cursor-default ${
+                      category === "Matcha" ? 'border-accent/20 bg-orange-50/5' : ''
+                    }`}
+                  >
+                    <div className="flex justify-between items-start mb-4">
+                      <h4 className="font-bold text-sm uppercase tracking-tight text-primary">{item.name}</h4>
+                    </div>
+                    <p className="text-text-muted text-[11px] leading-relaxed mb-6 font-sans">
+                      {item.description}
+                    </p>
+                    <div className="flex justify-between items-center mt-auto">
+                       <span className="font-bold text-primary">{item.price}</span>
+                       <div className="bg-light text-primary hover:bg-primary/5 p-1.5 px-4 text-[10px] rounded-[4px] font-bold uppercase tracking-widest cursor-pointer transition-colors">
+                          + Add
+                       </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <button className="text-xs font-bold uppercase tracking-[0.2em] text-accent border-b border-accent pb-1 hover:opacity-80 transition-opacity">
-            View Full Menu &rarr;
+        <div className="text-center mt-20">
+          <button className="text-xs font-bold uppercase tracking-[0.4em] text-accent border-b border-accent pb-1 hover:opacity-80 transition-opacity">
+            Download Price List &rarr;
           </button>
         </div>
       </div>
@@ -389,7 +429,7 @@ const VisitUs = () => {
               <MapPin className="w-6 h-6 text-accent shrink-0" />
               <div>
                 <p className="font-bold text-primary mb-1">Our Location</p>
-                <p className="text-text-muted">123 Artisan Way, Roasters District<br />Portland, OR 97201</p>
+                <p className="text-text-muted">Brgy. Solo, Mabini, Batangas<br />Philippines 4202</p>
               </div>
             </div>
             
@@ -397,8 +437,7 @@ const VisitUs = () => {
               <Clock className="w-6 h-6 text-accent shrink-0" />
               <div>
                 <p className="font-bold text-primary mb-1">Opening Hours</p>
-                <p className="text-text-muted">Mon – Fri: 7:00am – 8:00pm</p>
-                <p className="text-text-muted">Sat – Sun: 8:00am – 9:00pm</p>
+                <p className="text-text-muted">Open Daily: 2:00pm – 10:00pm</p>
               </div>
             </div>
 
@@ -406,7 +445,7 @@ const VisitUs = () => {
               <Phone className="w-6 h-6 text-accent shrink-0" />
               <div>
                 <p className="font-bold text-primary mb-1">Phone Number</p>
-                <p className="text-text-muted">(555) 123-4567</p>
+                <p className="text-text-muted">0995-978-8093</p>
               </div>
             </div>
           </div>
@@ -419,7 +458,7 @@ const VisitUs = () => {
           <div className="absolute inset-0 bg-[#E0D5C1] opacity-50 transition-transform group-hover:scale-105 duration-1000" />
           <div className="relative z-10 text-primary/40 flex flex-col items-center">
             <MapPin className="w-16 h-16 mb-4" />
-            <p className="font-serif italic text-xl">Find Your Way to Brew & Co.</p>
+            <p className="font-serif italic text-xl">Find Your Way to E&L Coffeedent</p>
           </div>
           {/* Placeholder for "Map" details */}
           <div className="absolute inset-x-0 bottom-0 p-8">
@@ -439,7 +478,14 @@ const Footer = () => {
     <footer className="bg-primary text-light py-12 px-6 border-t border-white/5">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
         <div className="space-y-4">
-          <div className="text-2xl font-serif italic font-bold">Brew & Co.</div>
+          <div className="flex items-center gap-3">
+            <img 
+              src="input_file_0.png" 
+              alt="E&L Coffeedent Logo" 
+              className="w-10 h-10 rounded-full border border-white/20" 
+            />
+            <div className="text-xl font-serif italic font-bold">E&L Coffeedent</div>
+          </div>
           <p className="text-[10px] uppercase tracking-widest opacity-60">© 2026 Artisan Coffee Roasters. All rights reserved.</p>
         </div>
 
@@ -455,8 +501,8 @@ const Footer = () => {
         </div>
 
         <div className="text-center md:text-right space-y-2">
-           <div className="text-xs opacity-80 font-sans">123 Artisan Way, Roasters District, Portland</div>
-           <div className="text-xs opacity-70 font-sans">Mon-Fri 7am-8pm | Sat-Sun 8am-9pm</div>
+           <div className="text-xs opacity-80 font-sans">Brgy. Solo, Mabini, Batangas, Philippines</div>
+           <div className="text-xs opacity-70 font-sans">Open Daily 2pm-10pm | 0995-978-8093</div>
            <div className="text-[10px] mt-4 flex justify-center md:justify-end gap-6 uppercase font-bold tracking-[0.3em] text-accent">
               <span className="hover:text-light transition-colors cursor-pointer">IG</span>
               <span className="hover:text-light transition-colors cursor-pointer">FB</span>

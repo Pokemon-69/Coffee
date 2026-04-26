@@ -26,38 +26,56 @@ import { motion, AnimatePresence } from 'motion/react';
 // --- Data ---
 
 const menuItems = [
-  // Coffee Based (Hot)
-  { id: 1, name: "Brewed Coffee", description: "12oz - Pure ground beans brewed daily.", price: "₱65", category: "Coffee Based (Hot)" },
-  { id: 2, name: "Capuccino", description: "12oz - Espresso with equal parts steamed milk and foam.", price: "₱95", category: "Coffee Based (Hot)" },
-  { id: 3, name: "Spanish Latte", description: "12oz - Rich espresso with our special sweet cream blend.", price: "₱95", category: "Coffee Based (Hot)" },
-  { id: 4, name: "Caramel Macchiato", description: "12oz - Layered espresso with vanilla and caramel drizzle.", price: "₱95", category: "Coffee Based (Hot)" },
-  { id: 5, name: "Sea Salt Latte", description: "12oz - Creamy latte topped with savory sea salt foam.", price: "₱95", category: "Coffee Based (Hot)" },
-  { id: 6, name: "Hot Chocolate", description: "12oz - Decadent hot cocoa made with premium chocolate.", price: "₱95", category: "Coffee Based (Hot)" },
+  // COFFEE BASED (HOT) - 12oz
+  { id: 1, name: "Brewed Coffee", description: "12oz - Pure robust hot brew.", price: "₱65", category: "Coffee Based (Hot)" },
+  { id: 2, name: "Capuccino", description: "12oz - Balanced espresso with frothy milk.", price: "₱95", category: "Coffee Based (Hot)" },
+  { id: 3, name: "Spanish Latte", description: "12oz - Sweet and creamy classic.", price: "₱95", category: "Coffee Based (Hot)" },
+  { id: 4, name: "Caramel Macchiato", description: "12oz - Vanila with caramel drizzle.", price: "₱95", category: "Coffee Based (Hot)" },
+  { id: 5, name: "Sea Salt Latte", description: "12oz - Creamy latte with a salty twist.", price: "₱95", category: "Coffee Based (Hot)" },
+  { id: 6, name: "Hot Chocolate", description: "12oz - Rich and warm cocoa.", price: "₱95", category: "Coffee Based (Hot)" },
 
-  // Coffee Based (Iced)
-  { id: 7, name: "Iced Americano", description: "16oz/20oz - Refreshing smooth espresso over ice.", price: "₱85 / ₱95", category: "Coffee Based (Iced)" },
-  { id: 8, name: "Spanish Latte", description: "16oz/20oz - Our best-selling sweet and creamy iced latte.", price: "₱130 / ₱149", category: "Coffee Based (Iced)" },
-  { id: 9, name: "Caramel Macchiato", description: "16oz/20oz - Espresso with cold milk and rich caramel.", price: "₱140 / ₱149", category: "Coffee Based (Iced)" },
-  { id: 10, name: "Salted Caramel", description: "16oz/20oz - Sweet and salty harmony in an iced blend.", price: "₱140 / ₱149", category: "Coffee Based (Iced)" },
-  { id: 11, name: "Sea Salt Latte", description: "16oz/20oz - Iced coffee with a savory sea salt kick.", price: "₱130 / ₱149", category: "Coffee Based (Iced)" },
-  { id: 12, name: "Vanilla Latte", description: "16oz/20oz - Classic smooth vanilla meeting bold espresso.", price: "₱110 / ₱130", category: "Coffee Based (Iced)" },
+  // COFFEE BASED (ICED) - 16oz / 20oz
+  { id: 7, name: "Iced Americano", description: "Smooth espresso over ice.", price: "₱85 / ₱95", category: "Coffee Based (Iced)" },
+  { id: 8, name: "Spanish Latte", description: "Sweetened iced espresso bliss.", price: "₱130 / ₱149", category: "Coffee Based (Iced)" },
+  { id: 9, name: "Caramel Macchiato", description: "Rich caramel and cold milk.", price: "₱140 / ₱149", category: "Coffee Based (Iced)" },
+  { id: 10, name: "Salted Caramel", description: "The perfect sweet-salty blend.", price: "₱140 / ₱149", category: "Coffee Based (Iced)" },
+  { id: 11, name: "Sea Salt Latte", description: "Savory foam meets bold coffee.", price: "₱130 / ₱149", category: "Coffee Based (Iced)" },
+  { id: 12, name: "Vanilla Latte", description: "Classic smooth vanilla iced blend.", price: "₱110 / ₱130", category: "Coffee Based (Iced)" },
+  { id: 13, name: "Taro Latte", description: "Earthy taro notes with espresso.", price: "₱130 / ₱140", category: "Coffee Based (Iced)" },
+  { id: 14, name: "Iced Mocha Latte", description: "Chocolate and coffee combined.", price: "₱130 / ₱140", category: "Coffee Based (Iced)" },
 
-  // Matcha
-  { id: 13, name: "Pure Matcha", description: "16oz/20oz - Traditional Japanese green tea blend.", price: "₱110 / ₱120", category: "Matcha" },
-  { id: 14, name: "Dirty Matcha", description: "16oz/20oz - Matcha combined with a shot of espresso.", price: "₱120 / ₱130", category: "Matcha" },
-  { id: 15, name: "Strawberry Matcha", description: "16oz/20oz - Sweet strawberry meeting earthy matcha.", price: "₱120 / ₱130", category: "Matcha" },
-  { id: 16, name: "Sea Salt Matcha", description: "16oz/20oz - Matcha topped with signature sea salt foam.", price: "₱120 / ₱130", category: "Matcha" },
+  // MATCHA - 16oz / 20oz
+  { id: 15, name: "Pure Matcha", description: "Vibrant traditional green tea.", price: "₱110 / ₱120", category: "Matcha" },
+  { id: 16, name: "Dirty Matcha", description: "Matcha with a kick of espresso.", price: "₱120 / ₱130", category: "Matcha" },
+  { id: 17, name: "Strawberry Matcha", description: "Fruity and earthy layers.", price: "₱120 / ₱130", category: "Matcha" },
+  { id: 18, name: "Sea Salt Matcha", description: "Matcha with savory foam.", price: "₱120 / ₱130", category: "Matcha" },
+  { id: 19, name: "Matcha Frappe", description: "Blended matcha perfection.", price: "₱120 / ₱130", category: "Matcha" },
+  { id: 20, name: "Organic Matcha", description: "20oz - Premium organic grade.", price: "₱230", category: "Matcha" },
 
-  // Non Caffeine
-  { id: 17, name: "Chocolate Frappe", description: "16oz/20oz - Blended chocolate goodness.", price: "₱85 / ₱95", category: "Non Caffeine" },
-  { id: 18, name: "Taro Frappe", description: "16oz/20oz - Creamy blended purple taro.", price: "₱110 / ₱120", category: "Non Caffeine" },
-  { id: 19, name: "Oreo", description: "16oz/20oz - Blended cookies and cream delight.", price: "₱85 / ₱95", category: "Non Caffeine" },
-  { id: 20, name: "Strawberry Frappe", description: "16oz/20oz - Fruity and creamy blended strawberry.", price: "₱85 / ₱95", category: "Non Caffeine" },
+  // NON CAFFEINE - 16oz / 20oz
+  { id: 21, name: "Chocolate Frappe", description: "Cool and chocolatey blend.", price: "₱85 / ₱95", category: "Non Caffeine" },
+  { id: 22, name: "Iced Chocolate", description: "Chilled premium cocoa milk.", price: "₱85 / ₱95", category: "Non Caffeine" },
+  { id: 23, name: "Dark Chocolate", description: "Bold and deep cocoa flavor.", price: "₱85 / ₱95", category: "Non Caffeine" },
+  { id: 24, name: "White Chocolate", description: "Sweet and creamy white cocoa.", price: "₱85 / ₱95", category: "Non Caffeine" },
+  { id: 25, name: "Taro Frappe", description: "Blended sweet purple taro.", price: "₱110 / ₱120", category: "Non Caffeine" },
+  { id: 26, name: "Caramel Frappe", description: "Buttery caramel blended treat.", price: "₱110 / ₱120", category: "Non Caffeine" },
+  { id: 27, name: "Oreo", description: "Cookies and cream sensation.", price: "₱85 / ₱95", category: "Non Caffeine" },
+  { id: 28, name: "Strawberry Frappe", description: "Creamy blended strawberries.", price: "₱85 / ₱95", category: "Non Caffeine" },
+  { id: 29, name: "Strawberry Oreo", description: "Fruity twist on a classic snack.", price: "₱95 / ₱105", category: "Non Caffeine" },
+  { id: 30, name: "Strawberry Milk", description: "Pure strawberry infused milk.", price: "₱85 / ₱95", category: "Non Caffeine" },
+  { id: 31, name: "Blueberry Milk", description: "Sweet blueberry creamy delight.", price: "₱85 / ₱95", category: "Non Caffeine" },
 
-  // Refreshment
-  { id: 21, name: "Strawberry Soda", description: "16oz/20oz - Bubbly strawberry refreshment.", price: "₱55 / ₱65", category: "Refreshment" },
-  { id: 22, name: "Blueberry Soda", description: "16oz/20oz - Sparkling blueberry fizz.", price: "₱55 / ₱65", category: "Refreshment" },
-  { id: 23, name: "Alipio Drink", description: "16oz/20oz - Our unique signature fruit blend.", price: "₱90 / ₱100", category: "Refreshment" },
+  // REFRESHMENT - 16oz / 20oz
+  { id: 32, name: "Strawberry Soda", description: "Bubbly fruit refreshment.", price: "₱55 / ₱65", category: "Refreshment" },
+  { id: 33, name: "Blueberry Soda", description: "Sparkling berry coolness.", price: "₱55 / ₱65", category: "Refreshment" },
+  { id: 34, name: "Grapes Soda", description: "Crisp grape sparkling drink.", price: "₱55 / ₱65", category: "Refreshment" },
+  { id: 35, name: "Green Apple", description: "Tart and sweet apple fizzy.", price: "₱55 / ₱55", category: "Refreshment" },
+  { id: 36, name: "Alipio Drink", description: "Secret signature refreshment.", price: "₱90 / ₱100", category: "Refreshment" },
+  
+  // ADD ONS
+  { id: 37, name: "Extra Shot", description: "Need an extra caffeine kick?", price: "₱25", category: "Add Ons" },
+  { id: 38, name: "Whipped Cream", description: "Topping for your frappe or cocoa.", price: "₱10", category: "Add Ons" },
+  { id: 39, name: "Plus Jam", description: "Fruit jam for your refreshment.", price: "₱10", category: "Add Ons" },
 ];
 
 const testimonials = [
@@ -93,13 +111,9 @@ const Navbar = () => {
       } border-b border-white/10`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3 group">
-          <img 
-            src="input_file_0.png" 
-            alt="E&L Coffeedent Logo" 
-            className="w-12 h-12 rounded-full border border-white/20 group-hover:scale-110 transition-transform duration-300" 
-          />
-          <span className="text-xl font-serif italic font-bold tracking-tight text-light">E&L Coffeedent</span>
+        <a href="#" className="flex items-center gap-2 group">
+          <Coffee className="w-8 h-8 text-accent group-hover:rotate-12 transition-transform duration-300" />
+          <span className="text-2xl font-serif italic font-bold tracking-tight text-light">Brew & Co.</span>
         </a>
 
         {/* Desktop Nav */}
@@ -429,7 +443,7 @@ const VisitUs = () => {
               <MapPin className="w-6 h-6 text-accent shrink-0" />
               <div>
                 <p className="font-bold text-primary mb-1">Our Location</p>
-                <p className="text-text-muted">Brgy. Solo, Mabini, Batangas<br />Philippines 4202</p>
+                <p className="text-text-muted">123 Artisan Way, Roasters District<br />Portland, OR 97201</p>
               </div>
             </div>
             
@@ -437,7 +451,8 @@ const VisitUs = () => {
               <Clock className="w-6 h-6 text-accent shrink-0" />
               <div>
                 <p className="font-bold text-primary mb-1">Opening Hours</p>
-                <p className="text-text-muted">Open Daily: 2:00pm – 10:00pm</p>
+                <p className="text-text-muted">Mon – Fri: 7:00am – 8:00pm</p>
+                <p className="text-text-muted">Sat – Sun: 8:00am – 9:00pm</p>
               </div>
             </div>
 
@@ -445,7 +460,7 @@ const VisitUs = () => {
               <Phone className="w-6 h-6 text-accent shrink-0" />
               <div>
                 <p className="font-bold text-primary mb-1">Phone Number</p>
-                <p className="text-text-muted">0995-978-8093</p>
+                <p className="text-text-muted">(555) 123-4567</p>
               </div>
             </div>
           </div>
@@ -458,7 +473,7 @@ const VisitUs = () => {
           <div className="absolute inset-0 bg-[#E0D5C1] opacity-50 transition-transform group-hover:scale-105 duration-1000" />
           <div className="relative z-10 text-primary/40 flex flex-col items-center">
             <MapPin className="w-16 h-16 mb-4" />
-            <p className="font-serif italic text-xl">Find Your Way to E&L Coffeedent</p>
+            <p className="font-serif italic text-xl">Find Your Way to Brew & Co.</p>
           </div>
           {/* Placeholder for "Map" details */}
           <div className="absolute inset-x-0 bottom-0 p-8">
@@ -478,13 +493,9 @@ const Footer = () => {
     <footer className="bg-primary text-light py-12 px-6 border-t border-white/5">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
         <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <img 
-              src="input_file_0.png" 
-              alt="E&L Coffeedent Logo" 
-              className="w-10 h-10 rounded-full border border-white/20" 
-            />
-            <div className="text-xl font-serif italic font-bold">E&L Coffeedent</div>
+          <div className="flex items-center gap-2 mb-6">
+            <Coffee className="w-6 h-6 text-accent" />
+            <span className="text-xl font-serif font-bold tracking-tight">Brew & Co.</span>
           </div>
           <p className="text-[10px] uppercase tracking-widest opacity-60">© 2026 Artisan Coffee Roasters. All rights reserved.</p>
         </div>
@@ -501,8 +512,8 @@ const Footer = () => {
         </div>
 
         <div className="text-center md:text-right space-y-2">
-           <div className="text-xs opacity-80 font-sans">Brgy. Solo, Mabini, Batangas, Philippines</div>
-           <div className="text-xs opacity-70 font-sans">Open Daily 2pm-10pm | 0995-978-8093</div>
+           <div className="text-xs opacity-80 font-sans">123 Artisan Way, Roasters District, Portland</div>
+           <div className="text-xs opacity-70 font-sans">Mon-Fri 7am-8pm | Sat-Sun 8am-9pm</div>
            <div className="text-[10px] mt-4 flex justify-center md:justify-end gap-6 uppercase font-bold tracking-[0.3em] text-accent">
               <span className="hover:text-light transition-colors cursor-pointer">IG</span>
               <span className="hover:text-light transition-colors cursor-pointer">FB</span>
